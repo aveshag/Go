@@ -1,3 +1,4 @@
+// https://go.dev/tour/moretypes/18
 package main
 
 import "golang.org/x/tour/pic"
