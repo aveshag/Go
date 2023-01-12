@@ -27,7 +27,12 @@ func main() {
 	// []bool{true, true, false} is a slice literal
 
 	chunk = []int{1, 2, 3, 4, 5, 6, 7}
+	// low <= high and high <= len(input)
 	fmt.Println(chunk)
+	fmt.Println("chunk: ", chunk[len(chunk)-1:])
+	fmt.Println("chunk: ", chunk[len(chunk):])
+	fmt.Println("chunk: ", chunk[len(chunk):len(chunk)])
+	// fmt.Println("chunk: ", chunk[len(chunk) + 1:]) // error
 
 	// The length of a slice is the number of elements it contains.
 	// The capacity of a slice is the number of elements in the underlying array, counting from the first element in the slice.
