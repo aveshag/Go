@@ -14,7 +14,7 @@ func main() {
 	if m == nil {
 		fmt.Println("Map is nil")
 	}
-	// Map is nilpanic: assignment to entry in nil map
+	// Map is nil panic: assignment to entry in nil map
 	// m["edge1"] = edge{1, 2}
 	// fmt.Println(m)
 
@@ -39,6 +39,10 @@ func main() {
 	edges["edge2"] = edge{11, 12}
 	edges["edge3"] = edge{-1, -8}
 	fmt.Println(edges)
+
+	for i, v := range edges {
+		fmt.Println(i, v)
+	}
 
 	delete(edges, "edge3")
 	fmt.Println(edges)
