@@ -18,6 +18,10 @@ func difference2(v vertex) float32 {
 }
 
 // You can only declare a method with a receiver whose type is defined in the same package as the method. You cannot declare a method with a receiver whose type is defined in another package (which includes the built-in types such as int).
+// func (x int) y() {
+	
+// }
+
 
 type Myint int
 

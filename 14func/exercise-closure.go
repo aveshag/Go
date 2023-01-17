@@ -1,3 +1,4 @@
+// https://go.dev/tour/moretypes/25
 package main
 
 import "fmt"
