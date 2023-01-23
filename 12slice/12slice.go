@@ -84,4 +84,6 @@ func main() {
 	// Full slice expression has the following syntax:
 	// input[low:high:max]
 	// Indices low and high work in the same way as with simple slice expressions. The only difference is max which sets result’s capacity to (max - low)
+
+	// y := []int is a error
 }

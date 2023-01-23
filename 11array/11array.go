@@ -13,7 +13,7 @@ func main() {
 	// When an array declare using an array literal, values can be initialize for specific elements.
 	var arr2 [4]int = [4]int{2: 1, 2}
 	// var arr2 [4]int = [4]int{2: 1, 2, 3} error because out of range
-
+	// 2 is indexed at 3 and 3 is indexed at 4
 	var arr3 []int = []int{1, 2, 3, 4}
 	arr4 := [...]int{1, 2, 3, 4}
 
