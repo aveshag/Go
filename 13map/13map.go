@@ -51,4 +51,7 @@ func main() {
 	elem, ok := edges["edge3"]
 	fmt.Println(elem, ok)
 
+	// Q: Why do I get a "cannot assign" error when setting value to a struct as a value in a map?
+	// https://stackoverflow.com/questions/32751537/why-do-i-get-a-cannot-assign-error-when-setting-value-to-a-struct-as-a-value-i
+
 }
