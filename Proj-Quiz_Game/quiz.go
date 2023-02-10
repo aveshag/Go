@@ -7,12 +7,35 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"time"
 )
+
+var correct int = 0
+
+func run_quiz(problems []problem, done chan bool) {
+	scanner := bufio.NewScanner(os.Stdin)
+	correct = 0
+
+	for i, prob := range problems {
+		fmt.Printf("Problem %d: %s\n", i+1, prob.que)
+
+		scanner.Scan()
+		ans := scanner.Text()
+
+		if ans == prob.ans {
+			correct += 1
+		}
+	}
+	done <- true
+}
 
 func main() {
 
 	var filename string
+	var dur int
 	flag.StringVar(&filename, "file", "questions.csv", "Path of csv file having format 'question,answer'")
+	flag.IntVar(&dur, "dur", 30, "Duration of quiz")
+
 	flag.Parse()
 
 	f, err := os.Open(filename)
@@ -25,9 +48,6 @@ func main() {
 	defer f.Close()
 
 	fileReader := csv.NewReader(f)
-	scanner := bufio.NewScanner(os.Stdin)
-
-	correct := 0
 
 	content, err := fileReader.ReadAll()
 	if err != nil {
@@ -36,17 +56,17 @@ func main() {
 
 	problems := parseProblems(content)
 
-	for i, prob := range problems {
-		fmt.Printf("Problem %d: %s\n", i+1, prob.que)
+	fmt.Print("Press enter to start the quiz")
+	fmt.Scanf("\n")
 
-		scanner.Scan()
-		ans := scanner.Text()
+	done := make(chan bool)
+	go run_quiz(problems, done)
 
-		if ans == prob.ans {
-			correct += 1
-		}
+	select {
+	case <-done:
+	case <-time.After(time.Second * time.Duration(dur)):
+		fmt.Println("Timeout")
 	}
-
 	fmt.Printf("You scored %d out of %d\n", correct, len(problems))
 }
 
