@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"encoding/json"
+)
 
 func main() {
 	type vertex struct {
@@ -36,4 +39,40 @@ func main() {
 	fmt.Println(v2)
 	fmt.Println(v3)
 	
+	v_p := new(vertex)
+	v_p.x = 2
+	fmt.Println(v_p)
+	fmt.Println(*v_p)
+
+	var v_p2 = new(vertex)
+	v_p2.y = 5
+	fmt.Println(v_p2)
+
+	// Use Field Tags in the Definition of Struct Type
+	// The tags are represented as raw string values (wrapped within a pair of ``) and ignored by normal code execution.
+
+	type Employee struct {
+		FirstName  string `json:"firstname"`
+		LastName   string `json:"lastname"`
+		City string `json:"city"`
+	}
+
+	json_string := `
+    {
+        "firstname": "Rocky",
+        "lastname": "Sting",
+        "city": "London"
+    }`
+ 
+    emp1 := new(Employee)
+    json.Unmarshal([]byte(json_string), emp1)
+    fmt.Println(emp1)
+ 
+    emp2 := new(Employee)
+    emp2.FirstName = "Ramesh"
+    emp2.LastName = "Soni"
+    emp2.City = "Mumbai"
+    jsonStr, _ := json.Marshal(emp2)
+    fmt.Printf("%s\n", jsonStr)
+
 }
