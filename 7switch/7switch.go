@@ -63,6 +63,8 @@ func main() {
 		fallthrough
 	case 3:
 		fmt.Println("Wednesday")
+	case 4:
+		fmt.Println("Thursday")
 	default:
 		fmt.Println("Rest")
 	}

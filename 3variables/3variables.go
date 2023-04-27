@@ -12,12 +12,12 @@ import (
 // uint uint8 uint16 uint32 uint64 uintptr
 // byte // alias for uint8
 // rune // alias for int32
-     // represents a Unicode code point
+// represents a Unicode code point
 // float32 float64
 // complex64 complex128
 
 var (
-	MaxInt uint32     = 1 << 32 -1
+	MaxInt uint32     = 1<<32 - 1
 	z      complex128 = cmplx.Sqrt(-5 + 12i)
 )
 
@@ -38,8 +38,17 @@ func main() {
 	abc := 10
 	fmt.Println(abc)
 
+	// %v: value in a default format
+	// %d: decimal integer
+	// %T: type of value
+	// %c: character
+	// %q: quoted character/string
+	// %s: plain string
+	// %t: true or false
+	// %f: floating numbers
+	// %.2f: floating numbers upto 2 decimal places
 	fmt.Printf("Type = %T, Value = %v\n", z, z)
-
+	fmt.Printf("Type = %T, Value = %v\n", 12, 12)
 	// Unlike in C, in Go assignment between items of different type requires an explicit conversion.
 
 	var t1 int = 1
@@ -48,9 +57,10 @@ func main() {
 	fmt.Println(t1, t2)
 
 	// Constants cannot be declared using the := syntax.
-
+	// untyped const
 	const clx = 2 + 3i
 	clx = 2
 	fmt.Println(clx)
-
+	// typed const
+	const name string = "abc"
 }
