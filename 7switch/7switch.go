@@ -41,6 +41,15 @@ func main() {
 		fmt.Println("Good evening.")
 	}
 
+	// Switch condition and case value should be of same type
+	// below switch example is not allowed
+	// switch true {
+	// case 1:
+	// 	fmt.Println("one")
+	// default:
+	// 	fmt.Println("default")
+	// }
+
 	// switch with multiple cases
 	t = time.Now()
 	d := t.Day()
