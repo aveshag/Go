@@ -13,6 +13,7 @@ type I interface {
 	dist() float64
 }
 
+// A type implements an interface by implementing its methods
 // This method means type edge implements the interface I,
 // but we don't need to explicitly declare that it does so.
 func (e *edge) dist() float64 {
