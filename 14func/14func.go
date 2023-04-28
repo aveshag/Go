@@ -5,6 +5,7 @@ import (
 	"math"
 )
 
+// High order functions
 func callfunc(fn func(float64, float64) float64) float64 {
 	return fn(4, 5)
 }
@@ -18,7 +19,23 @@ func incrementor() func() int {
 	}
 }
 
+func no_return(s string) {
+	fmt.Println(s)
+}
+
+// ... can we used with last parameter only
+func variadic_function(a int, b ...string) {
+
+	for i, x:= range b {
+		fmt.Println(i, "=>", x)
+	}
+}
+
+
 func main() {
+
+	args := []string{"a", "b"}
+	variadic_function(1, args...)
 
 	// Anonymous function
 
@@ -39,6 +56,8 @@ func main() {
 			return (f - 32.0) * (5.0 / 9.0)
 		}(100),
 	)
+
+	// x := no_return("pqr") // error
 
 	// Closure function
 	// Closures are a special case of anonymous functions. Closures are anonymous functions which access the variables defined outside the body of the function.
