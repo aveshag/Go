@@ -5,7 +5,31 @@ import (
 	"encoding/json"
 )
 
+type student struct {
+	name string
+	roll_no int
+	marks []int
+	grades map[string]int
+}
+
+// structures are passed by value by default
+
+func modify_struct(s *student) {
+	s.roll_no = 1
+	(*s).roll_no += 5
+} 
+
 func main() {
+
+	var s student
+	fmt.Printf("%+v\n", s)
+	fmt.Print(s, "\n")
+	fmt.Println(s)
+	st := new(student)
+	fmt.Printf("%+v\n", st)
+	modify_struct(&s)
+	fmt.Printf("%+v\n", s)
+
 	type vertex struct {
 		x int // no var
 		y int // no var
