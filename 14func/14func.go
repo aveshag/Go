@@ -27,6 +27,7 @@ func no_return(s string) {
 func variadic_function(a int, b ...string) {
 
 	for i, x:= range b {
+		b[i] = "c"
 		fmt.Println(i, "=>", x)
 	}
 }
@@ -35,8 +36,9 @@ func variadic_function(a int, b ...string) {
 func main() {
 
 	args := []string{"a", "b"}
+	// args passed by reference
 	variadic_function(1, args...)
-
+	fmt.Println(args)
 	// Anonymous function
 
 	a := func(a, b float64) float64 {
